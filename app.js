@@ -10,6 +10,18 @@ var users = require('./routes/users');
 
 var app = express();
 
+/**
+ * Require in app settings
+ * 
+ */
+require('dotenv').config();
+
+/**
+ * Connect to the data source
+ *
+ */
+require('./database/config');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

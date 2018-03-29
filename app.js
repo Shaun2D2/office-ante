@@ -12,7 +12,7 @@ var app = express();
 
 /**
  * Require in app settings
- * 
+ *
  */
 require('dotenv').config();
 

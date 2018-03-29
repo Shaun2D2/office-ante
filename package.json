@@ -1,0 +1,35 @@
+{
+  "name": "office-ante",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.15.5",
+    "morgan": "~1.9.0",
+    "nodemon": "^1.17.2",
+    "serve-favicon": "~2.4.5",
+    "webpack": "^4.3.0"
+  },
+  "description": "Office bet platform for fun",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shaun2D2/office-ante.git"
+  },
+  "keywords": [
+    "office",
+    "bets"
+  ],
+  "author": "Shaun Lobsinger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shaun2D2/office-ante/issues"
+  },
+  "homepage": "https://github.com/Shaun2D2/office-ante#readme"
+}

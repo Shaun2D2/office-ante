@@ -37,6 +37,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 
+/**
+ * Routing here
+ *
+ */
 app.use('/', index);
 app.use('/users', users);
 app.use('/register', register);

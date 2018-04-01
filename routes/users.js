@@ -3,7 +3,6 @@ var router = express.Router();
 
 const user = require('../models/User');
 
-/* GET users listing. */
 router.get('/', function(req, res, next) {
     user.find().exec().then((result) => res.send(result));
 });

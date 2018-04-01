@@ -14,17 +14,13 @@ const userModel = new mongoose.Schema({
     }
 });
 
-userModel.methods.generateHash = function(password) {
-  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-}
-
 userModel.methods.compareHash = function(password) {
   return bcrypt.compareSync(password, this.password);
 }
 
-userModel.pre('save', () => {
-    this.password = this.methods.generateHash(this.password);
+userModel.pre('save', function(next){
+  this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(8), null);
+  next();
 });
-
 
 module.exports = mongoose.model('User', userModel);

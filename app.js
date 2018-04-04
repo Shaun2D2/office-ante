@@ -6,10 +6,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 
-const index = require('./routes/index');
-const users = require('./routes/users');
-const register = require('./routes/register');
-
+const routes = require('./app/routes');
 const app = express();
 
 /**
@@ -41,9 +38,7 @@ app.use(passport.initialize());
  * Routing here
  *
  */
-app.use('/', index);
-app.use('/users', users);
-app.use('/register', register);
+routes(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

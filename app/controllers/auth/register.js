@@ -1,5 +1,5 @@
 const user = require('../../models/User');
-const jwt = require('jsonwebtoken');
+const createToken = require('../../utils/token').createToken;
 
 const registerController = {
     index(req, res) {
@@ -12,13 +12,7 @@ const registerController = {
                 });
 
                 return newUser.save().then(() => {
-
-                    const token = jwt.sign({
-                        subject: newUser.id
-                    }, process.env.APP_KEY);
-
-
-                    return res.send({ token });
+                    return res.send({ token: createToken(newUser.id) });
                 });
             }
 

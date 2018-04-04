@@ -5,10 +5,11 @@ const userController = {
         user.find().exec().then((result) => res.send(result));
     },
     show(req, res) {
+
+        console.log(req.user);
+
         user.findById(req.params.id).exec().then((result) => {
             if(result) {
-              delete result.password;
-
               return res.send(result);
             }
             res.status(404).json({ code: 404, message: 'user not found!' });

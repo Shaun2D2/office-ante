@@ -5,9 +5,6 @@ const userController = {
         user.find().exec().then((result) => res.send(result));
     },
     show(req, res) {
-
-        console.log(req.user);
-
         user.findById(req.params.id).exec().then((result) => {
             if(result) {
               return res.send(result);

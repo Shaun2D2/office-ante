@@ -3,6 +3,7 @@ const register = require('./controllers/auth/register');
 const login = require('./controllers/auth/login');
 const user = require('./controllers/user');
 const bet = require('./controllers/bet');
+const invitation = require('./controllers/invitation');
 
 module.exports = function(app, passport) {
     /**
@@ -31,6 +32,13 @@ module.exports = function(app, passport) {
      */
     app.get('/bet', passport.authenticate('jwt', { session: false }), bet.index);
     app.post('/bet', passport.authenticate('jwt', { session: false }), bet.create);
+
+    /**
+     * Invitation routes
+     *
+     */
+     app.get('/invitation', passport.authenticate('jwt', { session: false }), invitation.index);
+     app.get('/invitation/:id/:action(accept|decline)', passport.authenticate('jwt', { session: false }), invitation.update);
 
     /**
      * example protected route to test passport

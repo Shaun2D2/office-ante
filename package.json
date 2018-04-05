@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=development"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
@@ -38,6 +40,7 @@
   },
   "homepage": "https://github.com/Shaun2D2/office-ante#readme",
   "devDependencies": {
-    "webpack": "^4.3.0"
+    "webpack": "^4.3.0",
+    "webpack-cli": "^2.0.14"
   }
 }

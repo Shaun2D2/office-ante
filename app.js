@@ -20,7 +20,7 @@ require('dotenv').config();
  * Connect to the data source
  *
  */
-require('./database/config');
+require('./config/database');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -40,12 +40,4 @@ module.exports = function(app, passport) {
      app.get('/invitation', passport.authenticate('jwt', { session: false }), invitation.index);
      app.get('/invitation/:id/:action(accept|decline)', passport.authenticate('jwt', { session: false }), invitation.update);
 
-    /**
-     * example protected route to test passport
-     *
-     */
-    app.get('/protected', passport.authenticate('jwt', { session: false }), function(req, res) {
-        return res.json(req.user);
-    })
-
 }

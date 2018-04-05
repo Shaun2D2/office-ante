@@ -21,6 +21,9 @@
     "nodemon": "^1.17.2",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
+    "prop-types": "^15.6.1",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
     "serve-favicon": "~2.4.5"
   },
   "description": "Office bet platform for fun",
@@ -40,6 +43,10 @@
   },
   "homepage": "https://github.com/Shaun2D2/office-ante#readme",
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
     "webpack": "^4.3.0",
     "webpack-cli": "^2.0.14"
   }

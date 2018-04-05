@@ -1,1 +1,10 @@
-console.log("this is a test to make sure webpack is working!");
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const Hello = () => (
+    <div>
+        Hello World, react is here!
+    </div>
+);
+
+ReactDOM.render(<Hello />, document.getElementById('app'));

@@ -79,7 +79,18 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactDom = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n\nvar _reactDom2 = _interopRequireDefault(_reactDom);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Hello = function Hello() {\n    return _react2.default.createElement(\n        'div',\n        null,\n        'Hello World, react is here!'\n    );\n};\n\n_reactDom2.default.render(_react2.default.createElement(Hello, null), document.getElementById('app'));\n\n//# sourceURL=webpack:///./client/app.js?");
+eval("\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactDom = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n\nvar _reactDom2 = _interopRequireDefault(_reactDom);\n\n__webpack_require__(/*! bulma/bulma.sass */ \"./node_modules/bulma/bulma.sass\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Hello = function Hello() {\n    return _react2.default.createElement(\n        'div',\n        null,\n        'Hello World, react is here!'\n    );\n};\n\n_reactDom2.default.render(_react2.default.createElement(Hello, null), document.getElementById('app'));\n\n//# sourceURL=webpack:///./client/app.js?");
+
+/***/ }),
+
+/***/ "./node_modules/bulma/bulma.sass":
+/*!***************************************!*\
+  !*** ./node_modules/bulma/bulma.sass ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("throw new Error(\"Module parse failed: Unexpected character '@' (1:0)\\nYou may need an appropriate loader to handle this file type.\\n| @charset \\\"utf-8\\\"\\n| /*! bulma.io v0.6.2 | MIT License | github.com/jgthms/bulma */\\n| @import \\\"sass/utilities/_all\\\"\");\n\n//# sourceURL=webpack:///./node_modules/bulma/bulma.sass?");
 
 /***/ }),
 

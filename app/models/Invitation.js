@@ -7,6 +7,9 @@ const invitationModel = new mongoose.Schema({
     userId: {
         type: String
     },
+    role: {
+        type: String
+    },
     accpeted: {
         type: Boolean,
         default: false

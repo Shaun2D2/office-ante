@@ -1,4 +1,5 @@
 const bet = require('../models/Bet');
+const invitation = require('../models/Invitation');
 
 module.exports = {
     index(req, res) {
@@ -25,7 +26,26 @@ module.exports = {
         });
 
         newBet.save().then((model) => {
-            res.status(201).json(model);
+
+            const invitations = [
+                invitation.create({
+                    betId: model._id,
+                    userId: challengerId,
+                    role: 'challenger'
+                })
+            ];
+
+            if (judgeId) {
+                invitations.push(
+                    invitation.create({
+                        betId: model._id,
+                        userId: judgeId,
+                        role: 'judge'
+                    })
+                );
+            }
+
+            Promise.all(invitations).then(() => res.status(201).json(model));
         }).catch(err => res.status(400).json({ code: 400, message: err }));
 
     }

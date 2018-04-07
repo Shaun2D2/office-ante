@@ -1,12 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+
+import configureStore from './redux/configureStore';
 
 import 'bulma/bulma.sass';
 
-const Hello = () => (
-    <div>
-        Hello World, react is here!
-    </div>
+const store = configureStore();
+
+const App = () => (
+      <div>
+          Hello redux and react world!
+      </div>
 );
 
-ReactDOM.render(<Hello />, document.getElementById('app'));
+ReactDOM.render(
+    <Provider store={store}>  
+      <App />
+    </Provider>
+    , document.getElementById('app')
+);

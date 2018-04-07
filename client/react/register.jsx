@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import Input from './components/Input';
+
 class Register extends Component {
     constructor(props = {}) {
         super(props)
@@ -16,10 +18,8 @@ class Register extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    onChange(e) {
-        const name = e.target.name;
-        const value = e.target.value;
-
+    onChange(name, value) {
+        console.log([name, value]);
         this.setState({ [name]:value });
     }
 
@@ -49,20 +49,16 @@ class Register extends Component {
               <div className="columns">
                 <div className="column is-half is-offset-one-quarter">
                   <div className="box">
-                    <div className="field">
-                      <label>Email</label>
-                      <div className="control">
-                        <input
-                          className="input"
-                          name="email"
-                          type="text"
-                          placeholder="john@example.com"
-                          value={email}
-                          onChange={this.onChange}
-                        />
-                      { Object.keys(errors).find(error => error === 'email') && <p>Invalid Email address!</p> }
-                      </div>
-                    </div>
+                    <Input
+                      label="Email"
+                      className="input"
+                      name="email"
+                      type="text"
+                      placeholder="john@example.com"
+                      value={email}
+                      onChange={this.onChange}
+                    />
+
                     <div className="field">
                       <label>Password</label>
                       <div className="control">

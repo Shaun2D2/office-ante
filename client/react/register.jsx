@@ -51,40 +51,30 @@ class Register extends Component {
                   <div className="box">
                     <Input
                       label="Email"
-                      className="input"
                       name="email"
                       type="text"
                       placeholder="john@example.com"
                       value={email}
                       onChange={this.onChange}
                     />
-
-                    <div className="field">
-                      <label>Password</label>
-                      <div className="control">
-                        <input
-                          className="input"
-                          name="password"
-                          type="password"
-                          placeholder=""
-                          value={password}
-                          onChange={this.onChange}
-                        />
-                      </div>
-                    </div>
-                    <div className="field">
-                      <label>Confirm Password</label>
-                      <div className="control">
-                        <input
-                          className="input"
-                          name="confirmPassword"
-                          type="password"
-                          placeholder=""
-                          value={confirmPassword}
-                          onChange={this.onChange}
-                        />
-                      </div>
-                    </div>
+                    <Input
+                      label="Password"
+                      type="password"
+                      name="password"
+                      type="password"
+                      placeholder=""
+                      value={password}
+                      onChange={this.onChange}
+                    />
+                    <Input
+                      label="Confirm Password"
+                      type="password"
+                      name="confirmPassword"
+                      type="password"
+                      placeholder=""
+                      value={confirmPassword}
+                      onChange={this.onChange}
+                    />
                     <button
                       className="button is-primary"
                       onClick={this.handleSubmit}

@@ -27,14 +27,14 @@ class Input extends Component {
 
     render() {
         const { defaultValue, inputValue } = this.state;
-        const { type, placeholder, name, label } = this.props;
+        const { type, placeholder, name, label, error } = this.props;
 
         return (
           <div className="field">
             <label>{label}</label>
             <div className="control">
               <input
-                className="input"
+                className={`input ${ error && 'is-danger' }`}
                 name={name}
                 type={ type === 'password' ? 'password' : 'text' }
                 placeholder={placeholder}
@@ -42,6 +42,7 @@ class Input extends Component {
                 defaultValue={defaultValue}
                 onChange={this.onChange}
               />
+              {error && <p class="help is-danger">{error}</p>}
             </div>
           </div>
         )

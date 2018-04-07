@@ -6,13 +6,14 @@ import createBrowserHistory from 'history/createBrowserHistory'
 import configureStore from './redux/configureStore';
 import { Router, Route, IndexRoute } from 'react-router';
 
-import Navbar from './react/components/navbar';
-import Home from './react/home';
-import Login from './react/login';
-import About from './react/about';
-import Register from './react/register';
+import Navbar from './react/components/Navbar';
+import Home from './react/Home';
+import Login from './react/Login';
+import About from './react/About';
+import Register from './react/Register';
 
 import 'bulma/bulma.sass';
+import './sass/main.scss';
 
 const store = configureStore();
 const history = createBrowserHistory()

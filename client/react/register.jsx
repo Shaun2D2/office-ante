@@ -56,6 +56,7 @@ class Register extends Component {
                       placeholder="john@example.com"
                       value={email}
                       onChange={this.onChange}
+                      error={null}
                     />
                     <Input
                       label="Password"

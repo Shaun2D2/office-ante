@@ -4,10 +4,12 @@ import { Provider } from 'react-redux';
 import createBrowserHistory from 'history/createBrowserHistory'
 
 import configureStore from './redux/configureStore';
-import { Router, Route } from 'react-router';
+import { Router, Route, IndexRoute } from 'react-router';
 
 import Navbar from './react/components/navbar';
 import Home from './react/home';
+import Login from './react/login';
+import About from './react/about';
 
 import 'bulma/bulma.sass';
 
@@ -19,7 +21,9 @@ const App = () => (
       <Router history={history}>
         <div>
           <Navbar />
-          <Route component={Home} default />
+          <Route component={Home} path='/' exact />
+          <Route component={Login} path='/login' />
+          <Route component={About} path='/about' />
         </div>
       </Router>
 );

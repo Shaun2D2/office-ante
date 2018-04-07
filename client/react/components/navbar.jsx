@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => (
     <nav className="navbar" role="navigation" aria-label="main navigation">
@@ -6,10 +7,32 @@ const Navbar = () => (
         <a className="navbar-item" href="https://bulma.io">
           <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
         </a>
-        <div className="navbar-burger">
-          <span></span>
-          <span></span>
-          <span></span>
+      </div>
+      <div className="navbar-menu">
+        <div className="navbar-start">
+          <NavLink
+              to="/"
+              activeClassName="is-active"
+              className="navbar-item"
+          >
+            Home
+          </NavLink>
+          <NavLink
+              to="/about"
+              activeClassName="is-active"
+              className="navbar-item"
+          >
+            About
+          </NavLink>
+        </div>
+        <div className="navbar-end">
+            <NavLink
+                to="/login"
+                activeClassName="is-active"
+                className="navbar-item"
+            >
+              Login
+            </NavLink>
         </div>
       </div>
     </nav>

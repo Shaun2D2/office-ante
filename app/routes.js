@@ -10,34 +10,33 @@ module.exports = function(app, passport) {
      * Home page route
      *
      */
-    app.get('/', home.index);
+    app.get(/.*/, home.index);
 
     /**
      * Auth routes
      *
      */
-    app.post('/register', register.index);
-    app.post('/login', login.index);
+    app.post('/api/register', register.index);
+    app.post('/api/login', login.index);
 
     /**
      * User routes
      *
      */
-    app.get('/user', user.index);
-    app.get('/user/:id', user.show);
+    app.get('/api/user', user.index);
+    app.get('/api/user/:id', user.show);
 
     /**
      * Bet routes
      *
      */
-    app.get('/bet', passport.authenticate('jwt', { session: false }), bet.index);
-    app.post('/bet', passport.authenticate('jwt', { session: false }), bet.create);
+    app.get('/api/bet', passport.authenticate('jwt', { session: false }), bet.index);
+    app.post('/api/bet', passport.authenticate('jwt', { session: false }), bet.create);
 
     /**
      * Invitation routes
      *
      */
-     app.get('/invitation', passport.authenticate('jwt', { session: false }), invitation.index);
-     app.get('/invitation/:id/:action(accept|decline)', passport.authenticate('jwt', { session: false }), invitation.update);
-
+     app.get('/api/invitation', passport.authenticate('jwt', { session: false }), invitation.index);
+     app.get('/api/invitation/:id/:action(accept|decline)', passport.authenticate('jwt', { session: false }), invitation.update);
 }

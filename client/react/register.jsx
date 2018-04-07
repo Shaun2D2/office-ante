@@ -52,19 +52,14 @@ class Register extends Component {
                     <Input
                       label="Email"
                       name="email"
-                      type="text"
                       placeholder="john@example.com"
-                      value={email}
                       onChange={this.onChange}
-                      error={null}
                     />
                     <Input
                       label="Password"
                       type="password"
                       name="password"
                       type="password"
-                      placeholder=""
-                      value={password}
                       onChange={this.onChange}
                     />
                     <Input
@@ -72,8 +67,6 @@ class Register extends Component {
                       type="password"
                       name="confirmPassword"
                       type="password"
-                      placeholder=""
-                      value={confirmPassword}
                       onChange={this.onChange}
                     />
                     <button

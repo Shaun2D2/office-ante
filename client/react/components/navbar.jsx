@@ -7,7 +7,7 @@ const Navbar = () => (
           <NavLink
               to="/"
               activeClassName="is-active"
-              className="navbar-item branded"
+              className="navbar-item branded has-text-weight-bold is-size-5"
           >
             <i className="fas fa-hands-helping"></i> Office Ante
           </NavLink>

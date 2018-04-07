@@ -10,6 +10,7 @@ import Navbar from './react/components/navbar';
 import Home from './react/home';
 import Login from './react/login';
 import About from './react/about';
+import Register from './react/register';
 
 import 'bulma/bulma.sass';
 
@@ -24,6 +25,7 @@ const App = () => (
           <Route component={Home} path='/' exact />
           <Route component={Login} path='/login' />
           <Route component={About} path='/about' />
+          <Route component={Register} path='/sign-up' />
         </div>
       </Router>
 );

@@ -13,6 +13,9 @@ const registerController = {
 
                 return newUser.save().then(() => {
                     return res.send({ token: createToken(newUser.id) });
+                })
+                .catch((err) => {
+                    return res.status(400).json(err.errors);
                 });
             }
 

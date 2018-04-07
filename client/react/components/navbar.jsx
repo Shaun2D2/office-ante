@@ -27,6 +27,13 @@ const Navbar = () => (
         </div>
         <div className="navbar-end">
             <NavLink
+                to="/sign-up"
+                activeClassName="is-active"
+                className="navbar-item"
+            >
+              Sign Up
+            </NavLink>
+            <NavLink
                 to="/login"
                 activeClassName="is-active"
                 className="navbar-item"

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { userLogin } from '../redux/modules/user';
+import { connect } from 'react-redux';
+import { authLogin } from '../redux/modules/auth';
 import Input from './components/Input';
 
 class Login extends Component {
@@ -16,7 +17,13 @@ class Login extends Component {
     }
 
     handleSubmit() {
-        // do a thing...
+        const { email, password } = this.state;
+        const payload = {
+            email,
+            password
+        };
+
+        this.props.login(payload);
     }
 
     onChange(name, value) {
@@ -42,7 +49,12 @@ class Login extends Component {
                       type="password"
                       onChange={this.onChange}
                     />
-                    <button className="button is-primary"> Login </button>
+                    <button
+                      className="button is-primary"
+                      onClick={this.handleSubmit}
+                    >
+                      Login
+                    </button>
                   </div>
                 </div>
               </div>
@@ -52,4 +64,13 @@ class Login extends Component {
     }
 }
 
-export default Login;
+const mapDispatchToProps = dispatch => ({
+    login: (payload) => dispatch(authLogin(payload))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Login);
+
+export { Login };

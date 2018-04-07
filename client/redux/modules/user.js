@@ -1,19 +1,21 @@
 import { Map } from 'immutable';
+import axios from 'axios';
 
 /**
  * actions
  *
  */
-const USER_LOGIN = 'USER_LOGIN';
-const USER_LOGOUT = 'USER_LOGOUT';
+const FETCH = 'User/Fetch';
 
 /**
- * user login thunk
+ * thunks
  *
  */
-export const userLogin = (dispatch, action) => {
-    return function thunk() {
-        return dispatch({ type: USER_LOGIN, data: { name: 'tom' } });
+export function getUser() {
+    return function thunk(dispatch){
+        axios.get('/user').then(() => {
+            console.log('test');
+        });
     }
 }
 
@@ -21,10 +23,9 @@ const initialState = Map({});
 
 export default function(state = initialState, action) {
     switch(action.type) {
-        case USER_LOGIN:
-            state = action.data
-          break;
-        default:
-          return state;
+      case LOAD_USER:
+        return state
+      default:
+        return state
     }
 }

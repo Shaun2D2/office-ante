@@ -1,9 +1,11 @@
-const home = require('./controllers/home');
+const invitation = require('./controllers/invitation');
 const register = require('./controllers/auth/register');
 const login = require('./controllers/auth/login');
+const users = require('./controllers/users');
+const home = require('./controllers/home');
 const user = require('./controllers/user');
 const bet = require('./controllers/bet');
-const invitation = require('./controllers/invitation');
+
 
 module.exports = function(app, passport) {
     /**
@@ -20,11 +22,17 @@ module.exports = function(app, passport) {
     app.post('/api/login', login.index);
 
     /**
-     * User routes
+     * User singleton routes
      *
      */
-    app.get('/api/user', user.index);
-    app.get('/api/user/:id', user.show);
+     app.get('/api/user', user.index);
+
+    /**
+     * Users routes
+     *
+     */
+    app.get('/api/users', users.index);
+    app.get('/api/users/:id', users.show);
 
     /**
      * Bet routes

@@ -13,8 +13,8 @@ const FETCH = 'User/Fetch';
  */
 export function getUser() {
     return function thunk(dispatch){
-        axios.get('/user').then(() => {
-            console.log('test');
+        axios.get('/user').then((res) => {
+            console.log(res);
         });
     }
 }
@@ -23,7 +23,7 @@ const initialState = Map({});
 
 export default function(state = initialState, action) {
     switch(action.type) {
-      case LOAD_USER:
+      case FETCH:
         return state
       default:
         return state

@@ -6,12 +6,14 @@ import createBrowserHistory from 'history/createBrowserHistory'
 import configureStore from './redux/configureStore';
 import { Router, Route, IndexRoute } from 'react-router';
 
+import Modal from './react/components/modal/rootModal';
 import Navbar from './react/components/Navbar';
 import Dashboard from './react/Dashboard';
 import Register from './react/Register';
 import Login from './react/Login';
 import About from './react/About';
 import Home from './react/Home';
+
 
 
 import 'bulma/bulma.sass';
@@ -22,6 +24,7 @@ const history = createBrowserHistory()
 
 
 const App = () => (
+      <div>
       <Router history={history}>
         <div>
           <Navbar />
@@ -32,6 +35,8 @@ const App = () => (
           <Route component={Dashboard} path='/dashboard' />
         </div>
       </Router>
+      <Modal />
+      </div>
 );
 
 ReactDOM.render(

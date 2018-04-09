@@ -1,6 +1,10 @@
+import { Redirect } from 'react-router-dom';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
+
 import { authLogin } from '../redux/modules/auth';
+import { fetchUser } from '../redux/modules/user';
 import Input from './components/Input';
 
 class Login extends Component {
@@ -9,7 +13,8 @@ class Login extends Component {
 
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            redirect: false
         }
 
         this.onChange = this.onChange.bind(this);
@@ -17,13 +22,16 @@ class Login extends Component {
     }
 
     handleSubmit() {
+        const { loginUser, fetchUser } = this.props;
         const { email, password } = this.state;
         const payload = {
             email,
             password
         };
 
-        this.props.login(payload);
+        this.props.loginUser(payload).then(() => {
+            fetchUser().then(() => this.setState({ redirect: true }));
+        });
     }
 
     onChange(name, value) {
@@ -31,6 +39,10 @@ class Login extends Component {
     }
 
     render() {
+        if(this.state.redirect) {
+            return ( <Redirect to='/dashboard' />);
+        }
+
         return (
           <section className="section">
             <div className="container">
@@ -65,7 +77,8 @@ class Login extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    login: (payload) => dispatch(authLogin(payload))
+    loginUser: (payload) => dispatch(authLogin(payload)),
+    fetchUser: () => dispatch(fetchUser())
 });
 
 export default connect(

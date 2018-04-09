@@ -9,12 +9,6 @@ const bet = require('./controllers/bet');
 
 module.exports = function(app, passport) {
     /**
-     * Home page route
-     *
-     */
-    app.get(/.*/, home.index);
-
-    /**
      * Auth routes
      *
      */
@@ -25,7 +19,7 @@ module.exports = function(app, passport) {
      * User singleton routes
      *
      */
-     app.get('/api/user', user.index);
+     app.get('/api/user', passport.authenticate('jwt', { session: false }), user.index);
 
     /**
      * Users routes
@@ -47,4 +41,10 @@ module.exports = function(app, passport) {
      */
      app.get('/api/invitation', passport.authenticate('jwt', { session: false }), invitation.index);
      app.get('/api/invitation/:id/:action(accept|decline)', passport.authenticate('jwt', { session: false }), invitation.update);
+
+     /**
+      * Home page route
+      *
+      */
+     app.get(/.*/, home.index);
 }

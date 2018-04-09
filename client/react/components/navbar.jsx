@@ -1,7 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-const Navbar = () => (
+import { userLoggedIn } from '../../selectors/user';
+
+const Navbar = ({ loggedIn }) => (
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
           <NavLink
@@ -28,25 +31,58 @@ const Navbar = () => (
           >
             About
           </NavLink>
+          {
+            loggedIn && (
+              <NavLink
+                  to="/about"
+                  activeClassName="is-active"
+                  className="navbar-item"
+              >
+                Dashboard
+              </NavLink>
+            )
+          }
         </div>
-        <div className="navbar-end">
-            <NavLink
-                to="/sign-up"
-                activeClassName="is-active"
-                className="navbar-item"
-            >
-              Sign Up
-            </NavLink>
-            <NavLink
-                to="/login"
-                activeClassName="is-active"
-                className="navbar-item"
-            >
-              Login
-            </NavLink>
-        </div>
+          {
+            !loggedIn ? (
+              <div className="navbar-end">
+                <NavLink
+                    to="/sign-up"
+                    activeClassName="is-active"
+                    className="navbar-item"
+                >
+                  Sign Up
+                </NavLink>
+                <NavLink
+                    to="/login"
+                    activeClassName="is-active"
+                    className="navbar-item"
+                >
+                  Login
+                </NavLink>
+              </div>
+            ) : (
+              <div className="navbar-end">
+                <NavLink
+                    to="/"
+                    activeClassName="is-active"
+                    className="navbar-item"
+                >
+                  Logout
+                </NavLink>
+              </div>
+            )
+          }
       </div>
     </nav>
 );
 
-export default Navbar;
+const mapStateToProps = (state) => ({
+    loggedIn: userLoggedIn(state),
+});
+
+export default connect(
+    mapStateToProps
+)(Navbar);
+
+export { Navbar };

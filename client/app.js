@@ -7,10 +7,12 @@ import configureStore from './redux/configureStore';
 import { Router, Route, IndexRoute } from 'react-router';
 
 import Navbar from './react/components/Navbar';
-import Home from './react/Home';
+import Dashboard from './react/Dashboard';
+import Register from './react/Register';
 import Login from './react/Login';
 import About from './react/About';
-import Register from './react/Register';
+import Home from './react/Home';
+
 
 import 'bulma/bulma.sass';
 import './sass/main.scss';
@@ -27,6 +29,7 @@ const App = () => (
           <Route component={Login} path='/login' />
           <Route component={About} path='/about' />
           <Route component={Register} path='/sign-up' />
+          <Route component={Dashboard} path='/dashboard' />
         </div>
       </Router>
 );

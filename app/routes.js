@@ -1,10 +1,12 @@
 const invitation = require('./controllers/invitation');
 const register = require('./controllers/auth/register');
+const userBets = require('./controllers/userBets');
 const login = require('./controllers/auth/login');
 const users = require('./controllers/users');
 const home = require('./controllers/home');
 const user = require('./controllers/user');
 const bet = require('./controllers/bet');
+
 
 
 module.exports = function(app, passport) {
@@ -20,6 +22,7 @@ module.exports = function(app, passport) {
      *
      */
      app.get('/api/user', passport.authenticate('jwt', { session: false }), user.index);
+     app.get('/api/user/bets', passport.authenticate('jwt', { session: false }), userBets.show);
 
     /**
      * Users routes

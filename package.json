@@ -13,6 +13,7 @@
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "~1.18.2",
     "bulma": "^0.6.2",
+    "bulma-steps-component": "^0.5.3",
     "cookie-parser": "~1.4.3",
     "css-loader": "^0.28.11",
     "debug": "~2.6.9",

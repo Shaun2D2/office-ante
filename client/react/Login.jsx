@@ -1,6 +1,7 @@
 import { Redirect } from 'react-router-dom';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import swal from 'sweetalert';
 
 
 import { authLogin } from '../redux/modules/auth';
@@ -30,7 +31,13 @@ class Login extends Component {
         };
 
         this.props.loginUser(payload).then(() => {
-            fetchUser().then(() => this.setState({ redirect: true }));
+            fetchUser().then(() => {
+                this.setState({ redirect: true });
+                swal("Bingo!", "You successfully logged in!", "success", {
+                    buttons: false,
+                    timer: 1000
+                });
+            });
         });
     }
 

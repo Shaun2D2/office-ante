@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { userLoggedIn } from '../../selectors/user';
 
 const Navbar = ({ loggedIn }) => (
-    <nav className="navbar" role="navigation" aria-label="main navigation">
+    <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
           <NavLink
               to="/"
@@ -17,28 +17,37 @@ const Navbar = ({ loggedIn }) => (
       </div>
       <div className="navbar-menu">
         <div className="navbar-start">
-          <NavLink
-              to="/"
-              activeClassName="is-active"
-              className="navbar-item"
-          >
-            Home
-          </NavLink>
-          <NavLink
-              to="/about"
-              activeClassName="is-active"
-              className="navbar-item"
-          >
-            About
-          </NavLink>
+          {
+            !loggedIn && (
+              <span>
+                <NavLink
+                    exact
+                    to="/"
+                    activeClassName="is-active"
+                    className="navbar-item"
+                >
+                  Home
+                </NavLink>
+                <NavLink
+                    exact
+                    to="/about"
+                    activeClassName="is-active"
+                    className="navbar-item"
+                >
+                  About
+                </NavLink>
+              </span>
+            )
+          }
           {
             loggedIn && (
               <NavLink
-                  to="/about"
+                  exact
+                  to="/challenges"
                   activeClassName="is-active"
                   className="navbar-item"
               >
-                Dashboard
+                Challenges
               </NavLink>
             )
           }
@@ -47,6 +56,7 @@ const Navbar = ({ loggedIn }) => (
             !loggedIn ? (
               <div className="navbar-end">
                 <NavLink
+                    exact
                     to="/sign-up"
                     activeClassName="is-active"
                     className="navbar-item"
@@ -54,6 +64,7 @@ const Navbar = ({ loggedIn }) => (
                   Sign Up
                 </NavLink>
                 <NavLink
+                    exact
                     to="/login"
                     activeClassName="is-active"
                     className="navbar-item"
@@ -64,6 +75,7 @@ const Navbar = ({ loggedIn }) => (
             ) : (
               <div className="navbar-end">
                 <NavLink
+                    exact
                     to="/"
                     activeClassName="is-active"
                     className="navbar-item"

@@ -1,1 +1,1 @@
-export const userLoggedIn = (state) => state.hasIn(['user','_id']);
+export const userLoggedIn = (state) => state.hasIn(['auth', 'token']);

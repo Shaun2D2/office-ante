@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -15,11 +16,20 @@ import About from './react/About';
 import Home from './react/Home';
 
 
-
 import 'bulma/bulma.sass';
 import './sass/main.scss';
 
 const store = configureStore();
+
+/**
+ * configure axios if a token is present
+ * 
+ */
+if(store.getState().hasIn(['auth', 'token'])) {
+    axios.defaults.headers.common['Authorization'] = `bearer ${store.getState().getIn(['auth', 'token'])}`;
+}
+
+
 const history = createBrowserHistory()
 
 
@@ -32,7 +42,7 @@ const App = () => (
           <Route component={Login} path='/login' />
           <Route component={About} path='/about' />
           <Route component={Register} path='/sign-up' />
-          <Route component={Dashboard} path='/dashboard' />
+          <Route component={Dashboard} path='/challenges' />
         </div>
       </Router>
       <Modal />

@@ -6,11 +6,9 @@ import user from './modules/user';
 import bets from './modules/bets';
 
 
-const rootReducer = combineReducers({
+export default combineReducers({
     auth,
     user,
     modal,
     bets
 });
-
-export default rootReducer;

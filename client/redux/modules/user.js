@@ -13,13 +13,7 @@ const FETCH = 'User/Fetch';
  */
 export function fetchUser() {
     return function thunk(dispatch, getState){
-        const config = {
-          headers: {
-            authorization: `bearer ${getState().getIn(['auth', 'token'])}`
-          }
-        }
-
-        return axios.get('/api/user', config).then((res) => {
+        return axios.get('/api/user').then((res) => {
           dispatch({ type: FETCH, data: res.data });
         });
     }

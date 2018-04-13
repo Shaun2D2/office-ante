@@ -8,13 +8,13 @@ import configureStore from './redux/configureStore';
 import { Router, Route, IndexRoute } from 'react-router';
 
 import Modal from './react/components/modal/rootModal';
+import Challenge from './react/CreateChallenge';
 import Navbar from './react/components/Navbar';
 import Dashboard from './react/Dashboard';
 import Register from './react/Register';
 import Login from './react/Login';
 import About from './react/About';
 import Home from './react/Home';
-
 
 import 'bulma/bulma.sass';
 import './sass/main.scss';
@@ -43,6 +43,7 @@ const App = () => (
           <Route component={About} path='/about' />
           <Route component={Register} path='/sign-up' />
           <Route component={Dashboard} path='/challenges' />
+          <Route component={Challenge} path='/create-challenge' />
         </div>
       </Router>
       <Modal />

@@ -16,10 +16,9 @@ const Navbar = ({ loggedIn }) => (
           </NavLink>
       </div>
       <div className="navbar-menu">
-        <div className="navbar-start">
           {
             !loggedIn && (
-              <span>
+              <div className="navbar-start">
                 <NavLink
                     exact
                     to="/"
@@ -36,22 +35,31 @@ const Navbar = ({ loggedIn }) => (
                 >
                   About
                 </NavLink>
-              </span>
+              </div>
             )
           }
           {
             loggedIn && (
-              <NavLink
-                  exact
-                  to="/challenges"
-                  activeClassName="is-active"
-                  className="navbar-item"
-              >
-                Challenges
-              </NavLink>
+              <div className="navbar-start">
+                <NavLink
+                    exact
+                    to="/challenges"
+                    activeClassName="is-active"
+                    className="navbar-item"
+                >
+                  Challenges
+                </NavLink>
+                <NavLink
+                    exact
+                    to="/create-challenge"
+                    activeClassName="is-active"
+                    className="navbar-item"
+                >
+                  Create Challenge
+                </NavLink>
+              </div>
             )
           }
-        </div>
           {
             !loggedIn ? (
               <div className="navbar-end">

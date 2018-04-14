@@ -5,7 +5,7 @@ class Input extends Component {
         super(props);
 
         this.state = {
-          value: ''
+          inputValue: ''
         }
 
         this.onChange = this.onChange.bind(this);
@@ -13,13 +13,19 @@ class Input extends Component {
 
     componentWillMount() {
         if (this.props.defaultValue) {
-            this.setState({ value: defaultValue });
+            this.setState({ inputValue: defaultValue });
+        }
+    }
+
+    componentWillReceiveProps(newProps) {
+        if(newProps.value !== this.state.value) {
+            this.setState({ inputValue: newProps.value });
         }
     }
 
     onChange(e) {
         const { value, name } = e.target;
-        this.setState({ value: e.target.value }, () => {
+        this.setState({ inputValue: e.target.value }, () => {
 
             this.props.onChange(name, value);
         });

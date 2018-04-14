@@ -8,9 +8,9 @@ import configureStore from './redux/configureStore';
 import { Router, Route, IndexRoute } from 'react-router';
 
 import Modal from './react/components/modal/rootModal';
-import Challenge from './react/CreateChallenge';
+import Challenge from './react/Challenge/Index';
 import Navbar from './react/components/Navbar';
-import Dashboard from './react/Dashboard';
+import Challenges from './react/Challenges';
 import Register from './react/Register';
 import Login from './react/Login';
 import About from './react/About';
@@ -41,7 +41,7 @@ const App = () => (
           <Route component={Login} path='/login' />
           <Route component={About} path='/about' />
           <Route component={Register} path='/sign-up' />
-          <Route component={Dashboard} path='/challenges' />
+          <Route component={Challenges} path='/challenges' />
           <Route component={Challenge} path='/create-challenge' />
         </div>
       </Router>

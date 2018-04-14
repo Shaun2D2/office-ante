@@ -14,17 +14,28 @@ class TypeAhead extends Component {
         };
 
         this.handleChange = this.handleChange.bind(this);
+        this.sendValue = this.sendValue.bind(this);
         this.setValue = this.setValue.bind(this);
     }
 
     handleChange(name, value) {
-        this.setState({ value });
+        this.setState({ value }, () => {
+          if(value.length > 0) {
+            axios.get(`/api/users?filter=${value}&limit=4`).then((result) => this.setState({ data: result.data }));
+          } else {
+            this.setState({ data: [] });
+          }
 
-        axios.get(`/api/users?filter=${value}`).then((result) => this.setState({ data: result.data }));
+          this.sendValue();
+        });
     }
 
     setValue(value) {
-        this.setState({ value, data: [] });
+        this.setState({ value, data: [] }, () => this.sendValue());
+    }
+
+    sendValue() {
+        this.props.onChange(this.state.value);
     }
 
     render() {

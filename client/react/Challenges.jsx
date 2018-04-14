@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { fetchUserBets } from '../redux/modules/bets';
 import BetCard from './components/BetCard';
 
-class Dashboard extends Component {
+class Challenges extends Component {
       constructor(props = {}) {
           super(props);
 
@@ -43,6 +43,6 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   null,
   mapDispatchToProps
-)(Dashboard);
+)(Challenges);
 
-export { Dashboard };
+export { Challenges };

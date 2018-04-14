@@ -16,7 +16,6 @@ import Login from './react/Login';
 import About from './react/About';
 import Home from './react/Home';
 
-import 'bulma/bulma.sass';
 import './sass/main.scss';
 
 const store = configureStore();

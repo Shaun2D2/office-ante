@@ -1,5 +1,32 @@
+@import './node_modules/bulma/bulma.sass';
+@import './node_modules/bulma-steps-component/bulma-steps.sass';
+
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
 .branded {
     font-family: 'Source Sans Pro', sans-serif;
+}
+
+.type-ahead {
+    .field {
+        margin-bottom: 0px !important;
+    }
+}
+
+.type-ahead__item {
+    padding: 10px;
+    background: #FFF;
+    border: 1px solid #CCC;
+    border-bottom: 0px;
+    &:first-child {
+      border-top: 0px;
+    }
+    &:last-child {
+      border-bottom: 1px solid #CCC;
+    }
+    &:hover {
+      background-color: #f4f4f4;
+      border-color: #b5b5b5;
+      cursor: pointer;
+    }
 }

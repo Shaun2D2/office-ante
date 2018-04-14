@@ -83,9 +83,7 @@ const Navbar = ({ loggedIn }) => (
             ) : (
               <div className="navbar-end">
                 <NavLink
-                    exact
                     to="/"
-                    activeClassName="is-active"
                     className="navbar-item"
                 >
                   Logout

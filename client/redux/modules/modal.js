@@ -11,7 +11,7 @@ export const closeModal = () => {
     return { type: CLOSE, data: { open: false, modalType: null } };
 }
 
-const initialState = Map({ open: true, modalType: null });
+const initialState = Map({ open: false, modalType: null });
 
 export default function(state = initialState, action) {
     switch(action.type) {

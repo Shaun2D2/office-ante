@@ -6,7 +6,7 @@ import Card from './components/Card';
 
 const steps = [
     {
-        title: 'Finder Challenger',
+        title: 'Find Challenger',
         icon: 'fa-users'
     },
     {
@@ -32,8 +32,11 @@ const CreateChallenge = () => (
     />
   <Card>
     <h1 className="is-size-4">Find a Challenger</h1>
-    <p>In order to start a challenge, let's find a challenger!</p>
-    <TypeAhead />
+    <p style={{ marginBottom: 10 }}>In order to start a challenge, let's find a challenger!</p>
+    <div className="field">
+      <TypeAhead />
+    </div>
+    <button className="button is-primary">Onward!</button>
   </Card>
   </div>
 )

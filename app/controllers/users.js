@@ -2,6 +2,13 @@ const user = require('../models/User');
 
 const userController = {
     index(req, res) {
+
+        const filter = req.query.filter || null;
+
+        if(req.query.filter) {
+          return user.find({ email: new RegExp(filter, 'i') }).exec().then((result) => res.send(result));
+        }
+
         user.find().exec().then((result) => res.send(result));
     },
     show(req, res) {

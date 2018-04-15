@@ -12,8 +12,33 @@ const defaultStakes = [
     {
         title: 'Lunch',
         icon: 'fa-utensils'
+    },
+    {
+        title: 'High Five',
+        icon: 'fa-hand-paper'
+    },
+    {
+        title: 'Coffee',
+        icon: 'fa-coffee'
+    },
+    {
+        title: 'Movie Ticket',
+        icon: 'fa-ticket-alt'
+    },
+    {
+        title: 'Movie Rental',
+        icon: 'fa-film'
+    },
+    {
+        title: 'Fist Bump',
+        icon: 'fa-hand-rock'
+    },
+    {
+        title: 'Crown',
+        icon: 'fa-chess-queen'
     }
-]
+
+];
 
 class Stakes extends Component {
 
@@ -21,9 +46,9 @@ class Stakes extends Component {
         return (
             <div>
               <h1 className="is-size-4">Select the stakes!</h1>
-              <div className="columns">
+              <div className="columns is-multiline">
                   {defaultStakes.map((stake) => (
-                    <div className="column">
+                    <div className="column is-one-third">
                         <div className="box text-center">
                           <h1 className="is-size-3 has-text-centered">{stake.title}</h1>
                           <div className="has-text-centered">
@@ -32,12 +57,6 @@ class Stakes extends Component {
                         </div>
                     </div>
                   ))}
-                  <div className="column">
-                      <div className="box">
-                        <h1 className="is-size-3 has-text-centered">Other</h1>
-                      </div>
-                  </div>
-
               </div>
             </div>
         )

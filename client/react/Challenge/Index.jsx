@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import ProgressSteps from '../components/ProgressSteps';
 import FindChallenger from './views/FindChallenger';
 import Wager from './views/Wager';
+import Stakes from './views/Stakes';
 
 const steps = [
     {
@@ -28,7 +29,7 @@ class Challenge extends Component {
         super(props);
 
         this.state = {
-            step: 1,
+            step: 3,
             challenger: null,
             title: null,
             body: null,
@@ -67,6 +68,15 @@ class Challenge extends Component {
               <Wager
                   moveForward={this.moveForward}
                   handleChange={this.handleChange}
+              />
+            )
+        }
+
+        if(step === 3) {
+            return (
+              <Stakes
+                moveForward={this.moveForward}
+                handleChange={this.handleChange}
               />
             )
         }

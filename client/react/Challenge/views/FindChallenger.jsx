@@ -34,7 +34,7 @@ class FindChallenger extends Component {
             <div className="field" style={{ marginTop: 25 }}>
               <TypeAhead onChange={this.handleChange} />
             </div>
-            <button className="button is-primary">Onward!</button>
+            <button className="button is-primary" onClick={this.props.moveForward}>Onward!</button>
           </form>
         </Card>
       )

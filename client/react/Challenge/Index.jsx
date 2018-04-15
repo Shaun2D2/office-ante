@@ -35,6 +35,11 @@ class Challenge extends Component {
         }
 
         this.getView = this.getView.bind(this);
+        this.moveForward = this.moveForward.bind(this);
+    }
+
+    moveForward() {
+        this.setState({ step: this.state.step++ });
     }
 
     getView() {
@@ -42,7 +47,9 @@ class Challenge extends Component {
 
         if(step === 1){
             return (
-                <FindChallenger />
+                <FindChallenger
+                    moveForward={this.moveForward}
+                />
             )
         }
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { debounce } from 'lodash';
 import axios from 'axios';
 
 import Input from './Input';
@@ -16,12 +17,18 @@ class TypeAhead extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.sendValue = this.sendValue.bind(this);
         this.setValue = this.setValue.bind(this);
+        this.getUsers = debounce(this.getUsers.bind(this), 300);
+    }
+
+    getUsers(value) {
+        axios.get(`/api/users?filter=${value}&limit=4`)
+             .then((result) => this.setState({ data: result.data }));
     }
 
     handleChange(name, value) {
         this.setState({ value }, () => {
           if(value.length > 0) {
-            axios.get(`/api/users?filter=${value}&limit=4`).then((result) => this.setState({ data: result.data }));
+            this.getUsers(value);
           } else {
             this.setState({ data: [] });
           }

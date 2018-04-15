@@ -7,21 +7,12 @@ class FindChallenger extends Component {
     constructor(props = {}) {
         super(props);
 
-        this.state = {
-            email: null
-        }
-
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    handleChange(val) {
-        this.setState({ email: val });
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        console.log('test');
+        this.props.moveForward();
     }
 
     render() {
@@ -30,11 +21,13 @@ class FindChallenger extends Component {
           <h1 className="is-size-4">Find a Challenger</h1>
           <p>In order to start a challenge, let's find someone to challenge!</p>
           <p>Dont worry if they are not signed up for Office Ante, we'll send them an invite for you!</p>
-          <form onSubmit={this.handleSubmit}>
-            <div className="field" style={{ marginTop: 25 }}>
-              <TypeAhead onChange={this.handleChange} />
+          <form onSubmit={this.handleSubmit} style={{ marginTop: 25 }}>
+            <div className="field">
+              <TypeAhead
+                name="challenger"
+                onChange={this.props.handleChange} />
             </div>
-            <button className="button is-primary" onClick={this.props.moveForward}>Onward!</button>
+            <button className="button is-primary">Onward!</button>
           </form>
         </Card>
       )

@@ -42,7 +42,7 @@ class TypeAhead extends Component {
     }
 
     sendValue() {
-        this.props.onChange(this.state.value);
+        this.props.onChange(this.props.name, this.state.value);
     }
 
     render() {

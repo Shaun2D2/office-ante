@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import ProgressSteps from '../components/ProgressSteps';
 import FindChallenger from './views/FindChallenger';
+import Wager from './views/Wager';
 
 const steps = [
     {
@@ -29,6 +30,8 @@ class Challenge extends Component {
         this.state = {
             step: 1,
             challenger: null,
+            title: null,
+            body: null,
             wager: null,
             startDate: null,
             endDate: null
@@ -36,10 +39,15 @@ class Challenge extends Component {
 
         this.getView = this.getView.bind(this);
         this.moveForward = this.moveForward.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(name, value) {
+        this.setState({ [name]: value });
     }
 
     moveForward() {
-        this.setState({ step: this.state.step++ });
+        this.setState({ step: this.state.step + 1 });
     }
 
     getView() {
@@ -49,7 +57,17 @@ class Challenge extends Component {
             return (
                 <FindChallenger
                     moveForward={this.moveForward}
+                    handleChange={this.handleChange}
                 />
+            )
+        }
+
+        if(step === 2) {
+            return (
+              <Wager
+                  moveForward={this.moveForward}
+                  handleChange={this.handleChange}
+              />
             )
         }
 
@@ -60,7 +78,7 @@ class Challenge extends Component {
           <div className="container">
             <ProgressSteps
               steps={steps}
-              step={0}
+              step={this.state.step - 1}
             />
             {this.getView()}
           </div>

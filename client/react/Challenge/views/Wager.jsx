@@ -7,12 +7,13 @@ import Card from '../../components/Card';
 class Wager extends Component {
     constructor(props = {}) {
         super(props);
+
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit(e) {
         e.preventDefault();
-
-        console.log('do a thing...');
+        this.props.moveForward();
     }
 
     render() {

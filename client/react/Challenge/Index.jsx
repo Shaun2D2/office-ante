@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import swal from 'sweetalert';
 
 import ProgressSteps from '../components/ProgressSteps';
 import FindChallenger from './views/FindChallenger';
-import Wager from './views/Wager';
+import Confirm from './views/Confirm';
 import Stakes from './views/Stakes';
+import Wager from './views/Wager';
 
 const steps = [
     {
@@ -29,11 +31,11 @@ class Challenge extends Component {
         super(props);
 
         this.state = {
-            step: 3,
+            step: 4,
             challenger: null,
             title: null,
             body: null,
-            wager: null,
+            stakes: null,
             startDate: null,
             endDate: null
         }
@@ -41,6 +43,7 @@ class Challenge extends Component {
         this.getView = this.getView.bind(this);
         this.moveForward = this.moveForward.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.submitChallenge = this.submitChallenge.bind(this);
     }
 
     handleChange(name, value) {
@@ -81,6 +84,22 @@ class Challenge extends Component {
             )
         }
 
+        if(step === 4) {
+            return (
+              <Confirm
+                submitChallenge={this.submitChallenge}
+              />
+            )
+        }
+
+    }
+
+    submitChallenge() {
+        swal("Awww yiss!!", "Your challenge has been created!", "success", {
+            buttons: false,
+            timer: 1500
+        });
+        this.props.history.push('/challenges');
     }
 
     render() {
